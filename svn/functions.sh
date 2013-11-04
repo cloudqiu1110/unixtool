@@ -8,5 +8,5 @@ if [[ ! -f $file ]]; then
     exit;
 fi
 
-cat $file | grep "function" 
+cat $file | grep "function"  | grep -e "private" -e "public" | cut -d"o" -f2- | cut -c3- | cut -d"(" -f1 > ~/$file.funslist
 
